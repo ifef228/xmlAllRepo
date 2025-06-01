@@ -1,0 +1,30 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = git@github.com:ifef228/js-project.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+	remote = origin
+	merge = refs/heads/main
+	vscode-merge-base = origin/main
+[branch "bootstrap"]
+	remote = origin
+	merge = refs/heads/bootstrap
+	vscode-merge-base = origin/bootstrap
+[branch "homework"]
+	vscode-merge-base = origin/bootstrap
+	remote = origin
+	merge = refs/heads/homework
+[branch "lab5"]
+	vscode-merge-base = origin/homework
+	remote = origin
+	merge = refs/heads/lab5
+[branch "lab6"]
+	vscode-merge-base = origin/lab5
+	remote = origin
+	merge = refs/heads/lab6

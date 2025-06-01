@@ -1,4 +1,6 @@
 import { OperaitonsPage } from "../../pages/operations/index.js"
+import { ajax } from "../../modules/ajax.js"
+import { productUrls } from "../../modules/productUrls.js"
 
 export class SearchComponent {
     constructor(parent, data) {
@@ -101,7 +103,9 @@ export class SearchComponent {
             // Получаем все контейнеры card-trio
             const cardTrioContainers = document.querySelectorAll('[id^="card-trio-"]');
             
+            ajax.get(productUrls.getProducts(), (data) => console.log())
             cardTrioContainers.forEach(container => {
+
                 // Получаем все карточки в контейнере
                 // Здесь используем общий селектор, так как точное название класса карточек неизвестно
                 const cards = container.children;
@@ -112,7 +116,9 @@ export class SearchComponent {
                     // Ищем заголовок в карточке
                     const title = card.querySelector('h5');
                     
+
                     if (title) {
+
                         const titleText = title.textContent.toLowerCase();
                         
                         // Проверяем, содержит ли заголовок подстроку поиска

@@ -1,5 +1,7 @@
 import {MainPage} from "../main/index.js"
 import { ProductComponent } from "../../components/product/index.js"
+import { ajax } from "../../modules/ajax.js"
+import { productUrls } from "../../modules/productUrls.js"
 
 export class ProductPage {
     constructor(root, id, data, document) {
@@ -11,6 +13,10 @@ export class ProductPage {
 
     get pageRoot() {
         return this.document.getElementById('product-content')
+    }
+
+    render(data) {
+
     }
     
     getHTML() {
@@ -85,6 +91,8 @@ export class ProductPage {
     }
 
     render() {
+        ajax.get(productUrls.getProductById(this.id), (data) => this.render(data))
+        
         this.root.innerHTML = ''
         const html = this.getHTML()
         this.root.insertAdjacentHTML('beforeend', html)
